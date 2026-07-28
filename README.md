@@ -1,33 +1,26 @@
-# 🇬🇧 English
+🇬🇧 English
+🎯 Overview
 
-## 🎯 Overview
+Entry_Exit is a real-world staff attendance management system developed by Erfan Ahmadi for Asman Tajhiz.
 
-Entry_Exit is a real-world staff attendance management system developed by **Erfan Ahmadi** for **Asman Tajhiz**.
+This project was created to solve an actual business need and provides a simple solution for managing employee attendance records.
 
-This project was created to solve an actual business need and provides a simple solution for managing employee attendance records. The application allows users to log their entry and exit times, view attendance records, and calculate total working hours.
+The application allows users to log employee entry and exit times, view attendance records, and calculate total working hours.
 
-The system works completely offline using localStorage and supports Jalali date formatting for better compatibility with Persian users.
+The system works completely offline using localStorage and supports Jalali date formatting for Persian users.
 
----
-
-## 🧩 Features
-
-- Employee login system
-- Record employee entry time
-- Record employee exit time
-- Calculate total working hours
-- Jalali date support
-- 24-hour time format
-- Dashboard for attendance management
-- Table-based record display
-- Offline data storage using localStorage
-- Responsive user interface
-
----
-
-## ⚙️ Installation & Setup
-
-```bash
+🧩 Features
+Employee login system
+Record employee entry time
+Record employee exit time
+Calculate total working hours
+Jalali calendar support
+24-hour time format
+Attendance management dashboard
+Table-based record display
+Offline data storage using localStorage
+Responsive user interface
+⚙️ Installation & Setup
 # Clone the repository
 git clone https://github.com/er4Nxz/Entry_Exit.git
 
@@ -59,11 +52,6 @@ const date = moment().format(
 const time = moment().format(
   "HH:mm"
 );
-Working Time Calculation
-const timeToMinutes = (time) => {
-  const [hour, minute] = time.split(":");
-  return Number(hour) * 60 + Number(minute);
-};
 🛠️ Technologies Used
 React 19
 Vite
@@ -98,45 +86,41 @@ Entry_Exit/
 │   │   └── main.jsx
 │   │
 │   └── package.json
-💡 Lessons Learned
-Developing a real-world business application
-Managing application state and user interactions
-Working with offline-first applications
-Handling Jalali dates and time calculations
-Creating reusable React components
-Improving problem-solving through practical projects
-🧾 License
 
-This project is licensed under the MIT License. Free for personal and educational use.
 
-<br/>
 🇮🇷 فارسی
 🎯 معرفی پروژه
 
 Entry_Exit یک سیستم مدیریت ورود و خروج پرسنل است که توسط عرفان احمدی برای شرکت آسمان تجهیز توسعه داده شده است.
 
-این پروژه برخلاف پروژه‌های تمرینی، برای یک نیاز واقعی کاری ساخته شد و امکان ثبت ورود و خروج کارکنان، مشاهده اطلاعات حضور و غیاب و محاسبه زمان کاری را فراهم می‌کند.
+این پروژه برخلاف پروژه‌های تمرینی، برای یک نیاز واقعی کاری ساخته شد و با هدف ساده‌تر کردن فرآیند ثبت حضور و غیاب کارکنان توسعه داده شد.
 
-این سیستم به صورت کاملاً آفلاین با استفاده از localStorage کار می‌کند و از تاریخ جلالی پشتیبانی می‌کند.
+این سیستم امکان ثبت ورود و خروج کارکنان، مشاهده سوابق حضور و غیاب و محاسبه مجموع زمان کاری را فراهم می‌کند.
+
+برنامه به صورت کاملاً آفلاین با استفاده از localStorage کار می‌کند و از تاریخ جلالی برای سازگاری بهتر با کاربران فارسی‌زبان پشتیبانی می‌کند.
 
 🧩 ویژگی‌ها
 سیستم ورود کاربران
 ثبت ساعت ورود کارکنان
 ثبت ساعت خروج کارکنان
 محاسبه مجموع زمان کاری
-پشتیبانی از تاریخ جلالی
+پشتیبانی از تقویم جلالی
 نمایش ساعت به صورت ۲۴ ساعته
 داشبورد مدیریت حضور و غیاب
 نمایش اطلاعات در قالب جدول
 ذخیره‌سازی آفلاین با localStorage
-طراحی واکنش‌گرا
+رابط کاربری واکنش‌گرا
 ⚙️ نصب و اجرا
+# دریافت پروژه
 git clone https://github.com/er4Nxz/Entry_Exit.git
 
+# ورود به پوشه پروژه
 cd Entry_Exit
 
+# نصب وابستگی‌ها
 npm install
 
+# اجرای پروژه
 npm run dev
 🚀 نمونه کد
 ذخیره اطلاعات حضور و غیاب
@@ -154,6 +138,10 @@ import moment from "moment-jalaali";
 const date = moment().format(
   "jYYYY/jMM/jDD"
 );
+
+const time = moment().format(
+  "HH:mm"
+);
 🛠️ تکنولوژی‌ها
 React 19
 Vite
@@ -169,7 +157,11 @@ Animate.css
 📁 ساختار پروژه
 Entry_Exit/
 ├── Code/
+│   ├── public/
+│   │
 │   ├── src/
+│   │   ├── App/
+│   │   │
 │   │   ├── Components/
 │   │   │   ├── Dashboard/
 │   │   │   │   ├── Button/
@@ -186,9 +178,10 @@ Entry_Exit/
 │   └── package.json
 💡 نکات و تجربیات
 توسعه یک پروژه واقعی برای محیط کاری
-مدیریت وضعیت و تعاملات کاربر
+تجربه تبدیل یک نیاز واقعی به یک محصول نرم‌افزاری
 ساخت برنامه‌های آفلاین با localStorage
 کار با تاریخ جلالی و محاسبات زمانی
+مدیریت تعاملات کاربران
 ساخت کامپوننت‌های قابل استفاده مجدد
 افزایش تجربه حل مسئله در پروژه‌های واقعی
 🧾 لایسنس
