@@ -7,14 +7,14 @@ This project was created to solve an actual business need and provides a simple 
 
 The application allows users to log employee entry and exit times, view attendance records, and calculate total working hours.
 
-The system works completely offline using localStorage and supports Jalali date formatting for Persian users.
+The system works completely offline using localStorage and supports Jalali date formatting for better compatibility with Persian users.
 
 🧩 Features
 Employee login system
 Record employee entry time
 Record employee exit time
 Calculate total working hours
-Jalali calendar support
+Jalali date support
 24-hour time format
 Attendance management dashboard
 Table-based record display
@@ -34,28 +34,34 @@ npm install
 npm run dev
 🚀 Example Snippets
 Saving Attendance Records
-const records = JSON.parse(
-  localStorage.getItem("records")
-) || [];
+const records = JSON.parse(localStorage.getItem("records")) || [];
+
+const newRecord = {
+  user: user,
+  date: nowDate,
+  entry: nowTime,
+  exit: ""
+};
 
 localStorage.setItem(
   "records",
-  JSON.stringify(records)
+  JSON.stringify([...records, newRecord])
 );
-Jalali Date Formatting
+Jalali Date & Time
 import moment from "moment-jalaali";
 
-const date = moment().format(
-  "jYYYY/jMM/jDD"
-);
+const nowDate = moment().format("jYYYY/jMM/jDD");
+const nowTime = moment().format("HH:mm");
+Working Time Calculation
+const timeToMinutes = (time) => {
+  if (!time) return 0;
 
-const time = moment().format(
-  "HH:mm"
-);
+  const [hour, minute] = time.split(":");
+
+  return Number(hour) * 60 + Number(minute);
+};
 🛠️ Technologies Used
-React 19
-Vite
-JavaScript ES6
+React (Components, Hooks)
 React Router DOM
 Tailwind CSS
 Bootstrap 5
@@ -63,48 +69,36 @@ DaisyUI
 React Icons
 moment-jalaali
 localStorage
-Animate.css
-📁 Project Structure
-Entry_Exit/
-├── Code/
-│   ├── public/
-│   │
-│   ├── src/
-│   │   ├── App/
-│   │   │
-│   │   ├── Components/
-│   │   │   ├── Dashboard/
-│   │   │   │   ├── Button/
-│   │   │   │   ├── Delete/
-│   │   │   │   ├── Table/
-│   │   │   │   └── TotalTime/
-│   │   │   │
-│   │   │   ├── Header/
-│   │   │   └── Login/
-│   │   │
-│   │   ├── index.css
-│   │   └── main.jsx
-│   │
-│   └── package.json
+JavaScript ES6
+Vite
+💡 Lessons Learned
+Developing a real-world attendance management system
+Creating offline-first applications with localStorage
+Working with Jalali dates and time calculations
+Managing user interactions and application state
+Building reusable React components
+Improving problem-solving skills through practical development
+🧾 License
 
+This project is licensed under the MIT License. Free for personal and educational use.
 
 🇮🇷 فارسی
 🎯 معرفی پروژه
 
 Entry_Exit یک سیستم مدیریت ورود و خروج پرسنل است که توسط عرفان احمدی برای شرکت آسمان تجهیز توسعه داده شده است.
 
-این پروژه برخلاف پروژه‌های تمرینی، برای یک نیاز واقعی کاری ساخته شد و با هدف ساده‌تر کردن فرآیند ثبت حضور و غیاب کارکنان توسعه داده شد.
+این پروژه برای حل یک نیاز واقعی کاری ساخته شد و هدف آن ساده‌تر کردن فرآیند ثبت حضور و غیاب کارکنان است.
 
-این سیستم امکان ثبت ورود و خروج کارکنان، مشاهده سوابق حضور و غیاب و محاسبه مجموع زمان کاری را فراهم می‌کند.
+این برنامه امکان ثبت ساعت ورود و خروج کارکنان، مشاهده سوابق حضور و غیاب و محاسبه مجموع زمان کاری را فراهم می‌کند.
 
-برنامه به صورت کاملاً آفلاین با استفاده از localStorage کار می‌کند و از تاریخ جلالی برای سازگاری بهتر با کاربران فارسی‌زبان پشتیبانی می‌کند.
+این سیستم به صورت کاملاً آفلاین با استفاده از localStorage کار می‌کند و از تاریخ جلالی پشتیبانی می‌کند.
 
 🧩 ویژگی‌ها
 سیستم ورود کاربران
 ثبت ساعت ورود کارکنان
 ثبت ساعت خروج کارکنان
 محاسبه مجموع زمان کاری
-پشتیبانی از تقویم جلالی
+پشتیبانی از تاریخ جلالی
 نمایش ساعت به صورت ۲۴ ساعته
 داشبورد مدیریت حضور و غیاب
 نمایش اطلاعات در قالب جدول
@@ -123,29 +117,20 @@ npm install
 # اجرای پروژه
 npm run dev
 🚀 نمونه کد
-ذخیره اطلاعات حضور و غیاب
-const records = JSON.parse(
-  localStorage.getItem("records")
-) || [];
+ذخیره اطلاعات ورود و خروج
+const records = JSON.parse(localStorage.getItem("records")) || [];
 
 localStorage.setItem(
   "records",
   JSON.stringify(records)
 );
-مدیریت تاریخ جلالی
+تاریخ و ساعت جلالی
 import moment from "moment-jalaali";
 
-const date = moment().format(
-  "jYYYY/jMM/jDD"
-);
-
-const time = moment().format(
-  "HH:mm"
-);
+const nowDate = moment().format("jYYYY/jMM/jDD");
+const nowTime = moment().format("HH:mm");
 🛠️ تکنولوژی‌ها
-React 19
-Vite
-JavaScript ES6
+React (کامپوننت‌ها و Hooks)
 React Router DOM
 Tailwind CSS
 Bootstrap 5
@@ -153,35 +138,13 @@ DaisyUI
 React Icons
 moment-jalaali
 localStorage
-Animate.css
-📁 ساختار پروژه
-Entry_Exit/
-├── Code/
-│   ├── public/
-│   │
-│   ├── src/
-│   │   ├── App/
-│   │   │
-│   │   ├── Components/
-│   │   │   ├── Dashboard/
-│   │   │   │   ├── Button/
-│   │   │   │   ├── Delete/
-│   │   │   │   ├── Table/
-│   │   │   │   └── TotalTime/
-│   │   │   │
-│   │   │   ├── Header/
-│   │   │   └── Login/
-│   │   │
-│   │   ├── index.css
-│   │   └── main.jsx
-│   │
-│   └── package.json
+JavaScript ES6
+Vite
 💡 نکات و تجربیات
 توسعه یک پروژه واقعی برای محیط کاری
 تجربه تبدیل یک نیاز واقعی به یک محصول نرم‌افزاری
 ساخت برنامه‌های آفلاین با localStorage
 کار با تاریخ جلالی و محاسبات زمانی
-مدیریت تعاملات کاربران
 ساخت کامپوننت‌های قابل استفاده مجدد
 افزایش تجربه حل مسئله در پروژه‌های واقعی
 🧾 لایسنس
